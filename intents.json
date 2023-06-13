@@ -1,0 +1,63 @@
+{"intents": [
+    {
+        "tag": "greetings",
+        "patterns": ["hello", "hey", "hi", "greetings"],
+        "responses": ["Hello!", "Hey!", "How are you?", "What can I do for you?"]
+    },
+    {
+        "tag": "farewell",
+        "patterns": ["goodbye", "cya", "take care", "adios"],
+        "responses": ["Have a wonderful day!", "Take care!", "Goodbye", "Adios", "Bye"]
+    },
+    {
+        "tag": "name",
+        "patterns": ["What is your name", "Who are you", "What should I call you", "Can you tell me your name"],
+        "responses": ["My name is John.", "Nice to meet you, my name is John.", "You can call me John.", "I'm John, nice to meet you."]
+    },
+    {
+        "tag": "age",
+        "patterns": ["How old are you", "What is your age", "Age", "How old"],
+        "responses": ["I was created on the 5th of June 2023 at 14:35"]
+    },
+    {
+        "tag": "identity",
+        "patterns": ["What are you", "Are you an AI", "Are you Human"],
+        "responses": ["I am an AI chatbot.", "I am a Python-based AI chatbot.", "I was created to be a chatbot"]
+    },
+    {
+        "tag": "help",
+        "patterns": ["Can you help me", "I need assistance", "Help please", "Can you guide me"],
+        "responses": ["Of course! I'm here to help. What do you need assistance with?", "Sure, I'll do my best to assist you. What do you require help with?"]
+    },
+    {
+        "tag": "thank you",
+        "patterns": ["Thank you", "Thanks a lot", "I appreciate your help", "Thank you for your assistance"],
+        "responses": ["You're welcome! I'm glad I could assist you.", "You're welcome! If you need any more help, feel free to ask.", "No problem! If you have any more questions, feel free to ask."]
+    },
+    {
+        "tag": "favorite_color",
+        "patterns": ["What is your favorite color", "Do you have a favorite color", "Which color do you like the most"],
+        "responses": ["I don't have a favorite color. I'm an AI and don't perceive colors.", "Colors don't have any meaning for me as an AI."]
+    },
+    {
+        "tag": "food_recommendation",
+        "patterns": ["Can you recommend a restaurant", "Any suggestions for dinner"],
+        "responses": ["Certainly! You could try making some pasta.", "How about Pizza?", "Perhaps you could order online."]
+    },
+    {
+        "tag": "movie_recommendation",
+        "patterns": ["Can you suggest a good movie", "I need a movie recommendation.", "Any good movies playing"],
+        "responses": ["Sorry I don't have eyes.", "Sorry I can't help you, I don't have any information on movies."]
+    },
+    {
+        "tag": "sports",
+        "patterns": ["Which sports do you like", "Do you watch sports", "Are you a fan of any sports"],
+        "responses": ["As an AI, I don't have personal preferences.", "I don't watch sports myself."]
+    },
+    {
+        "tag": "book_recommendation",
+        "patterns": ["Can you recommend a good book", "Any book suggestions", "Whats a popular book right now"],
+        "responses": ["No!", "No sorry, I cannot.", "Sorry I don't read."]
+    }
+]
+}

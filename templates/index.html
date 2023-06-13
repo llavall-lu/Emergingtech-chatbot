@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Demo</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Chatbot Demo</h1>
+    <div class="chat-container">
+        <div class="chat-history" id="chat-history">
+            <!-- Chat history will be displayed here -->
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Enter your message" onkeydown="handleKeyDown(event)">
+            <input type="submit" value="Send" onclick="sendMessage()">
+        </div>
+    </div>
+
+    <script>
+        function handleKeyDown(event) {
+            if (event.keyCode === 13) { // This function is triggerd on keypress of enter and triggers the event send message
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            //this function is called when the user sends a message
+            //it takes the user input and adds it to the user history
+            //It then calls the getBotResponse functiuon
+            var userInput = document.getElementById("user-input").value;
+
+            if (userInput.trim() !== "") {
+                addUserMessage(userInput);
+                getBotResponse(userInput);
+                document.getElementById("user-input").value = "";
+            }
+        }
+
+        function addUserMessage(message) {
+            //This function adds the users message to the chat and generates a HTML element for the users message
+            var chatHistory = document.getElementById("chat-history");
+            var userMessageElement = document.createElement("div");
+            userMessageElement.classList.add("user-message");
+            userMessageElement.innerHTML = message;
+            chatHistory.appendChild(userMessageElement);
+        }
+
+        function addBotMessage(message) {
+            //This function does what the above does but with the bot messages
+            //it also scrolls the chat to show the latest message
+            var chatHistory = document.getElementById("chat-history");
+            var botMessageElement = document.createElement("div");
+            botMessageElement.classList.add("bot-message");
+            botMessageElement.innerHTML = message;
+            chatHistory.appendChild(botMessageElement);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function getBotResponse(userInput) {
+            //This part is the most important, it sends a GET request to get the bots reply in response to a user input
+            //it then calls the addBotMessage function to display the bot message
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/get-response?msg=" + userInput, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = xhr.responseText;
+                    addBotMessage(response);
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
